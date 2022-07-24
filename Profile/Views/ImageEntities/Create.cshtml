@@ -1,0 +1,60 @@
+﻿@model Profile.Models.ImageEntity
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_mainGallery.cshtml";
+}
+
+<div class="top">
+    <h1>Create</h1>
+
+
+    <hr />
+</div>
+<div class=".container-sm table-create" >
+    <div class="col-md-4 " >
+        <form class="row " asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           
+          
+            <div class="col-auto">
+
+                <label asp-for="FormFile" class="control-label"></label>
+                <span asp-validation-for="FormFile" class="text-danger"></span>
+                <div class="custom-file">
+
+                    <input  asp-for="FormFile" class="custom-file-input form-control" type="file" id="formFile"
+                           onchange="document.getElementById('ProductPrev').src=window.URL.createObjectURL(this.files[0])">
+                    
+
+
+                </div>
+
+                <img class="img-thumbnail"  id="ProductPrev" src="" alt="img" width="350" height="350"
+                     style="border:1px;margin-top:20px;margin:auto " />
+
+
+            </div>
+            <div class="form-group ">
+                 <button type="submit" class="btn btn-primary " style="width:150px ">Create</button>
+            <a asp-controller="ImageEntities" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to list</a>
+            </div>
+        </form>
+    </div>
+   
+
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script type="text/javascript">
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("Selected").html(fileName);
+
+        });
+    </script>
+    }

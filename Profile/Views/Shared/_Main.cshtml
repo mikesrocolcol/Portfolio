@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - My Profile</title>
+    <link rel="stylesheet" href="~/css/Bootstrap5.css" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <link rel="stylesheet" href="~/Profile.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+
+
+
+
+
+</head>
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center  header-transparent ">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <div class="logo">
+                <h1><a asp-controller="Home" asp-action="Index">Portfolio</a></h1>
+
+            </div>
+
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto" href="#about">About Me</a></li>
+                    <li><a class="nav-link scrollto" href="#skills">Skills</a></li>
+                    <li><a class="nav-link scrollto" href="#portfolio">Project</a></li>
+
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+
+        </div>
+    </header><!-- End Header -->
+
+    <div>
+        <main id="main">
+            <partial name="_Notification" />
+            <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+            @RenderBody()
+
+            <section id="hero" class="d-flex flex-column  align-items-center">
+                <div id="heroCarousel" data-bs-interval="7000" class="container carousel carousel-fade" data-bs-ride="carousel">
+
+
+                    <div class="box-container ">
+                        <h2 class="animate__animated animate__fadeInDown ">
+                            Welcome to <span>My Profile</span>
+                        </h2>
+                        <p class="animate__animated fanimate__adeInUp"><span>A Developer</span></p>
+                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">See More</a>
+                    </div>
+
+                </div>
+                <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+                    <defs>
+                        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+                    </defs>
+                    <g class="wave1">
+                        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"></use>
+                    </g>
+                    <g class="wave2">
+                        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"></use>
+                    </g>
+                    <g class="wave3">
+                        <use xlink:href="#wave-path" x="50" y="9" fill="#fff"></use>
+                    </g>
+                </svg>
+
+            </section>
+            <!-- ======= About Section ======= -->
+            <div id="about" class="paddsection about">
+                <div class="container">
+                    <div class="row content justify-content-between">
+
+                        <div class="col-lg-4 ">
+                            <div class="div-img-bg">
+                                <div class="about-img">
+                                    <img src="img/portfolio/portfolio-1.png" class="img-responsive" alt="me">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-7 content">
+                            <div class="about-descr">
+
+                                <p class="p-heading">
+                                    I am Name a web developer, I enjoy building things around .net ecosystem, working on front-end and back-end, Im always striving to
+                                    learn and develop new skills and become a better software Engineer.--I also love creating Responsive and artistic UI design websites.
+                                </p>
+                                <a href="~/Resume/8x10 house plan-Layout1.pdf" download="~/Resume/8x10 house plan-Layout1.pdf" class="btn-learn-more" > Download Resume</a >
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End About Section -->
+            <!-- ======= Technologies ======= -->
+
+            <section id="skills" class="skills ">
+
+                <div class="container reveal">
+                    <div class="section-title">
+                        <h2>Skills</h2>
+
+                    </div>
+                    <div class="row">
+
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                            <img src="~/img/icon/bootstrap.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                            <img src="~/img/icon/html.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                            <img src="~/img/icon/js.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                            <img src="~/img/icon/css-3.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                            <img src="~/img/icon/c-sharp.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                            <img src="~/img/icon/dotnet.png" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                            <img src="~/img/icon/sql-server.png" class="img-fluid" alt="">
+                        </div>
+                        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+                            <img src="~/img/icon/github.png" class="img-fluid" alt="">
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </section>
+
+
+            <!-- ======= En Technologies ======= -->
+            <!-- ======= Portfolio Section ======= -->
+
+            <section id="portfolio" class="portfolio">
+                <div class="container reveal">
+
+                    <div class="section-title">
+                        <h2>Project</h2>
+
+                    </div>
+
+                    <div class="row gy-5">
+
+                        <div class="col-xl-4 col-md-6 d-flex ">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio/portfolio-2.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="portfolio-info">
+                                    <div class="social">
+                                        <a asp-controller="ExpenseEntities" asp-action="Index"><i class="bi bi-link-45deg"></i></a>
+                                        <a href="https://github.com/mikesrocolcol"><i class="bi bi-github"></i></a>
+                                    </div>
+                                    <h4>ExpenseApp</h4>
+                                    <span>CRUD,RESPONSIVE</span>
+                                    <span>SQL C# HTML BOOTSTRAP CSS JS ASP.NET MVC</span>
+                                </div>
+                            </div>
+                        </div><!-- End project1 -->
+
+                        <div class="col-xl-4 col-md-6 d-flex">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio/portfolio-1.png" class="img-fluid" alt="">
+                                </div>
+                                <div class="portfolio-info">
+                                    <div class="social">
+                                        <a asp-controller="ImageEntities" asp-action="Index"><i class="bi bi-link-45deg"></i></a>
+                                        <a href="https://github.com/mikesrocolcol"><i class="bi bi-github"></i></a>
+
+                                    </div>
+                                    <h4>GalleryApp</h4>
+                                    <span>CRUD W/ IMG,RESPONSIVE</span>
+                                    <span>SQL C# HTML BOOTSTRAP CSS JS ASP.NET MVC</span>
+                                </div>
+                            </div>
+                        </div><!-- End project2 -->
+
+                        <div class="col-xl-4 col-md-6 d-flex">
+                            <div class="portfolio-item">
+                                <div class="portfolio-img">
+                                    <img src="img/portfolio/portfolio-3.png" class="img-fluid" alt="">
+
+                                </div>
+                                <div class="portfolio-info">
+                                    <div class="social">
+                                        <a href="#hero"><i class="bi bi-link-45deg"></i></i></a>
+                                        <a href="https://github.com/mikesrocolcol"><i class="bi bi-github"></i></a>
+
+                                    </div>
+                                    <h4>Portfolio</h4>
+                                    <span>MULTI-PAGE,RESPONSIVE</span>
+                                    <span>SQL C# HTML BOOTSTRAP CSS JS ASP.NET MVC</span>
+                                </div>
+                            </div>
+                        </div><!-- End project3-->
+
+                    </div>
+
+                </div>
+            </section>
+            <!-- ======= Portfolio Section ======= -->
+            <!-- ======= Contact Section ======= -->
+            <section id="contact" class="contact">
+                <div class="container reveal">
+
+                    <div class="section-title">
+                        <h2>Contact</h2>
+                        <p>Contact Me</p>
+                    </div>
+
+                    <div class="row mt-5">
+
+                        <div class="col-lg-4">
+                            <div class="info">
+
+                                <div class="email">
+                                    <i class="bi bi-envelope"></i>
+                                    <h4>Email:</h4>
+                                    <p>mikesrocolcol@gmail.com</p>
+                                </div>
+
+                                <div class="phone">
+                                    <i class="bi bi-phone"></i>
+                                    <h4>Call:</h4>
+                                    <p>09074852106</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-8 mt-5 mt-lg-0">
+
+                            <form action="forms" method="post" role="form" class="email-form">
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                    </div>
+                                    <div class="col-md-6 form-group mt-3 mt-md-0">
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                    </div>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                </div>
+                                <div class="my-3">
+                                    <div class="loading">Loading</div>
+                                    <div class="error-message"></div>
+                                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                                </div>
+                                <div class="text-center"><button type="submit" >Send Message</button></div>
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+            <!-- End Contact Section -->
+
+        </main>
+
+    </div>
+
+
+
+
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+        <div class="container">
+            &copy; 2022 - Created By-Mike S Rocolcol 
+
+        </div>
+    </footer><!-- End Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

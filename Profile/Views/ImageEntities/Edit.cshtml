@@ -1,0 +1,94 @@
+﻿@model Profile.Models.ImageEntity
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_mainGallery.cshtml";
+}
+<div class="top">
+    <h1>Edit</h1>
+
+
+    <hr />
+</div>
+<div class=" .container-sm table-create">
+
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="img ">
+                <img src="@("~/images/"+Model.ImageFile)" id="myImg" asp-append-version="true" width="300" height="300" />
+                <div id="myModal" class="modal">
+                    <img class="modal-content" id="img01">
+                    <div id="caption"></div>
+                </div>
+            </div>
+
+
+
+            <div class="col-auto form-group">
+                <span asp-validation-for="FormFile" class="text-danger"></span>
+                <label asp-for="FormFile" class="control-label"></label>
+                <div class="custom-file">
+                    <input asp-for="FormFile" class="custom-file-input form-control" type="file" id="formFile"
+                           onchange="document.getElementById('ProductPrev').src=window.URL.createObjectURL(this.files[0])">
+
+
+                </div>
+
+                <img class="rounded " id="ProductPrev" src="" alt="Img" width="350" height="450"
+                     style="border:1px;margin-top:20px;margin:auto; " />
+
+
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary " style="width:150px ">Save</button>
+                <a asp-controller="ImageEntities" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to list</a>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+
+
+    <script type="text/javascript">
+        var modal = document.getElementById('myModal');
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById('myImg');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        img.onclick = function() {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+            captionText.innerHTML = this.alt;
+        }
+
+
+        // When the user clicks on <span> (x), close the modal
+        modal.onclick = function() {
+            img01.className += " out";
+            setTimeout(function() {
+                modal.style.display = "none";
+                img01.className = "modal-content";
+            }, 400);
+        }
+
+
+        $(".custom-file-input").on("change", function() {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("Selected").html(fileName);
+
+        });
+    </script>
+}

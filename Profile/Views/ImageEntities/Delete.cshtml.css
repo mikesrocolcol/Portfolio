@@ -1,0 +1,11 @@
+﻿.table-create {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.top {
+    position:relative;
+    margin-top: 130px;
+}

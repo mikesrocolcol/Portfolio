@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Profile.Models.ExpenseEntity>
+
+@{
+    ViewData["Title"] = "Index";
+    
+}
+
+
+
+<div class="container p-3"   >
+
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary ">My Expenses</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="ExpenseEntities" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Add New</a>
+
+        </div>
+    </div>
+    <br />
+ </div>
+
+
+<div style="overflow-x:auto">
+<table class="table table-bordered table-responsive table-striped table table-hover "   > 
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpenseCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Createdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td width="15%" align="center">
+                @Html.DisplayFor(modelItem => item.ExpenseCategory.ExpenseCategoryName)
+            </td>
+            <td width="15%" align="center">
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td width="15%" align="center">
+                @Html.DisplayFor(modelItem => item.Createdate)
+            </td>
+            <td width="15%" align="center">
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td width="15%">
+            <td width="15%" align="center">
+                <img src="~/images/@item.Image" alt=""  width="50" height="50"/>
+               
+                
+                
+            </td>
+            <td width="15%">
+                <div class="w-70 btn-group">
+                <a asp-action="Edit" class="btn btn-info mx-1" asp-route-id="@item.Id">Edit</a> 
+                <a asp-action="Details" class="btn btn-secondary mx-1" asp-route-id="@item.Id">Details</a> 
+                <a asp-action="Delete" class="btn btn-danger mx-1" asp-route-id="@item.Id">Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
